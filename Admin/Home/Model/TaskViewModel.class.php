@@ -1,32 +1,28 @@
 <?php namespace Home\Model;
 use Think\Model\ViewModel;
 
-class FileViewModel extends ViewModel {
+class TaskViewModel extends ViewModel {
 	public $viewFields = array(
-		'file' => array(
+		'task'	=> 	array(
 			'id',
 			'use_id',
 			'pri_id',
 			'name',
-			'url',
 			'time',
 			'status',
 			'copies',
-			'double_side',
+			'isdouble',
 			'color',
-			'ppt_layout',
-			'requirements',
-			'first_order',
+			'format',
 		),
 		'printer' => array(
 			'name' => 'pri_name',
-			//'id',
-			'_on' => 'printer.id=file.pri_id',
+			'_on' => 'printer.id=task.pri_id',
 		),
 		'user' => array(
 			'name' => 'user_name',
-			'student_number' => 'stu_num',
-			'_on' => 'user.id=file.use_id'
+			'number' => 'stu_num',
+			'_on' => 'user.id=task.use_id'
 		),
 	);
 }

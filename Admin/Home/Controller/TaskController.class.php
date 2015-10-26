@@ -2,7 +2,7 @@
 namespace Home\Controller;
 use Think\Controller;
 
-class FileController extends Controller {
+class TaskController extends Controller {
 
 	public function index()
 	{
@@ -40,18 +40,18 @@ class FileController extends Controller {
 					  $condition['status'] = array('between', '1,5');
 				}
 			}
-			$File  = D('FileView');
-			$count = $File->where($condition)->count();
+			$Task  = D('TaskView');
+			$count = $Task->where($condition)->count();
 			$Page  = new \Think\Page($count, 10);
 			$show  = $Page->show();
 			$ppt_layout = C('PPT_LAYOUT');
-			$result = $File->where($condition)->order('file.id desc')->limit($Page->firstRow.','.$Page->listRows)->select();
+			$result = $Task->where($condition)->order('task.id desc')->limit($Page->firstRow.','.$Page->listRows)->select();
 			
-			foreach ($result as &$file)
+			foreach ($result as &$task)
 			{
-				$file['ppt_layout'] = $ppt_layout[$file['ppt_layout']];
+				$task['format'] = $ppt_layout[$task['format']];
 			}
-			unset($file);
+			unset($task);
 			$this->data = $result;
 			$this->status = $status;
 			$this->assign('page', $show);

@@ -1,5 +1,5 @@
 <extend name="Admin/templates/nav.html" />
-<block name="title"><title>云印-文件管理</title></block>
+<block name="title"><title>云印-任务管理</title></block>
 <block name="content">
 <div class="row">
 	<div class="col-sm-2">
@@ -47,7 +47,7 @@
                     <default />未知状态
                     </switch>
                 </td>
-                <td>{$vo.user_name}[{$vo.stu_num}]</td>
+                <td>[{$vo.stu_num}]{$vo.user_name}</td>
                 <td>[{$vo.id}]{$vo.name}</td>
                 <td>{$vo.time}</td>
                 <td>{$vo.pri_name}[{$vo.pri_id}]</td>
@@ -55,7 +55,7 @@
             <td>现打</td><td>-</td><td>-</td><td>-</td>    
             <ELSE/>
             <td> {$vo.copies}</td><td>
-                <IF condition="$vo.double_side gt 0">
+                <IF condition="$vo.isdouble gt 0">
                 双面
                 <ELSE/>
                 单面
@@ -65,7 +65,7 @@
                 <IF condition="$vo.color gt 0"> 彩印 <ELSE/> 黑白 </IF>
                 </td>
                 <td>
-                    {$vo.ppt_layout}
+                    {$vo.format}
                 </td>
             </IF>
             </tr>
