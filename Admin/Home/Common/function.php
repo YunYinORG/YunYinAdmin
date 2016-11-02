@@ -8,16 +8,17 @@ function admin_id($redirect_url = null)
 	}
 	else
 	{
-		$token = I('cookie.token', null, C('REGEX_TOKEN'));
-		if ($token)
-		{
-			$info = auth_token($token);
-			if ($info['type'] == C('ADMIN'))
-			{
-				session('admin_id', $info['id']);
-				return $info['id'];
-			}
-		}
+#		$token = I('cookie.token', null, C('REGEX_TOKEN'));
+#		if ($token)
+#		{
+#			$info = auth_token($token);
+#			if ($info['type'] == C('ADMIN'))
+#			{
+#				session('admin_id', $info['id']);
+#				return $info['id'];
+#			}
+#		}
+	return null;
 	}
 
 	if ($redirect_url)

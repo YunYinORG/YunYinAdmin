@@ -11,7 +11,7 @@ class TaskViewModel extends ViewModel {
 			'time',
 			'status',
 			'copies',
-			'isdouble',
+			'`double`',
 			'color',
 			'format',
 		),
